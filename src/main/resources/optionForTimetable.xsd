@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://service/testLTE-Labs/ws/sample">
+
+    <xs:element name="createTimetableRequest">
+        <xs:complexType>
+            <xs:sequence>
+<!--                The day is specified in the following form "YYYY-MM-DD-->
+                <xs:element name="day" type="xs:date"/>
+<!--                The period is specified in the following form "PT*H*M*S"-->
+                <xs:element name="period" type="xs:duration"/>
+                <xs:element name="count" type="xs:positiveInteger"/>
+<!--                The period is specified in the following form "PT*H*M*S"-->
+                <xs:element name="startWorkDay" type="xs:duration"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="createTimetableResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="count" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

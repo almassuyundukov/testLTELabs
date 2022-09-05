@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "412b020b-5cf9-42bc-add8-66565c65d92b",
+		"name": "rest API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20057870"
+	},
+	"item": [
+		{
+			"name": "ticket api",
+			"item": [
+				{
+					"name": "get free tickets by doctor and date",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/api/ticket/doctor=1&date=2022-09-02",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"ticket",
+								"doctor=1&date=2022-09-02"
+							]
+						},
+						"description": "В адресной строке указывается id доктора и дата в формате (yyyy-MM-DD)"
+					},
+					"response": []
+				},
+				{
+					"name": "put Doctor in ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/api/ticket/doctor/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"ticket",
+								"doctor",
+								"8"
+							]
+						},
+						"description": "В адресной строке указывается id записи, на которую требуется установить доктора, в body в формате json передается id доктора"
+					},
+					"response": []
+				},
+				{
+					"name": "delete ticket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/api/patient/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"patient",
+								"1"
+							]
+						},
+						"description": "в адресной строке указывается id записи"
+					},
+					"response": []
+				},
+				{
+					"name": "put Patient in ticket",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/api/ticket/patient/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"ticket",
+								"patient",
+								"8"
+							]
+						},
+						"description": "В адресной строке указывается id записи, на которую требуется установить patient, в body в формате json передается id пациента"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "patient api",
+			"item": [
+				{
+					"name": "get all tickets by patient",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9595/api/patient/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"patient",
+								"1"
+							]
+						},
+						"description": "в адресной строке указывается id пациента, чьи записи нужно получить"
+					},
+					"response": []
+				},
+				{
+					"name": "create patient",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Petrov P.P.\",\r\n    \"dateOfBirth\": \"2003-03-28\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/api/patient/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"patient",
+								""
+							]
+						},
+						"description": "в body передается patient с полями fullName, dateOfBirth в формате json. Передаваемый формат даты должен быть (yyyy-MM-DD)"
+					},
+					"response": []
+				},
+				{
+					"name": "update patient",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Sidorov S.S.\",\r\n    \"dateOfBirth\": \"2002-11-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/api/patient/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"patient",
+								"1"
+							]
+						},
+						"description": "Обновление данных пациента по его id, который передается в адресной строке, в теле запроса patient с полями fullName, dateOfBirth. Формат даты (yyyy-MM-DD)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doctor api",
+			"item": [
+				{
+					"name": "create doctor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Ivanov I.I.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/api/doctor/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"doctor",
+								""
+							]
+						},
+						"description": "В body передается doctor с полем fullName в формает JSON"
+					},
+					"response": []
+				},
+				{
+					"name": "update doctor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Fedorov F.F.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9595/api/doctor/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9595",
+							"path": [
+								"api",
+								"doctor",
+								"1"
+							]
+						},
+						"description": "Редактирование данных доктора, в body передается доктор с полем fullName в формате json"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
