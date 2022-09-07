@@ -3,7 +3,7 @@ spring:
     url: "jdbc:postgresql://localhost:5432/test-LTE-labs"
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: almasuj1998
+    password: postgres
 
   #    url: ${DB_URL}
   #    driver-class-name: ${DB_DRIVER}
